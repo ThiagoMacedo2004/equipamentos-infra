@@ -1,8 +1,40 @@
+import { ModelosEquipamentosComponent } from './modelos-equipamentos/modelos-equipamentos.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { NovoCadastroComponent } from './lista-comodatos/novo-cadastro/novo-cadastro.component';
+import { ListaComodatosComponent } from './lista-comodatos/lista-comodatos.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+
+  {
+    path: '',
+    redirectTo: 'listaComodatos',
+    pathMatch: 'full'
+  },
+
+  {
+    path: 'listaComodatos',
+    component: ListaComodatosComponent
+  },
+
+  {
+    path: 'novoCadastro',
+    component: NovoCadastroComponent
+  },
+
+  {
+    path: 'usuarios',
+    component:UsuariosComponent
+  },
+
+  {
+    path: 'modelosEquipamentos',
+    component: ModelosEquipamentosComponent
+  }
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

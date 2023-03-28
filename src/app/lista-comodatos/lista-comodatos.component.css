@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+}
+
+.container {
+    width: 98%;
+    margin: 10px auto;
+}
+
+.card {
+    max-height: 84vh;
+    overflow-y: auto;
+}
+
+mat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

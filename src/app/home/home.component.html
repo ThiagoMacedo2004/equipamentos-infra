@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <span>Comodatos</span>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+    
+    <mat-drawer mode="side" opened>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let link of links" [fixedInViewport]="true" [activated]="link.isActive" >
+                
+               <a mat-list-option routerLink="{{link.link}}" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="link-active">
+                    <i class="material-icons">{{link.icon}} </i>
+                    <span>{{ link.nome }}</span> 
+                </a>
+
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+
+</mat-drawer-container>
