@@ -1,5 +1,7 @@
+import { BackEndPhpService } from 'src/app/services/back-end-php.service';
+import { DialogHistoricoEquipamentoComponent } from './../dialog-historico-equipamento/dialog-historico-equipamento.component';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -15,11 +17,14 @@ export class DialogEquipamentosComponent implements OnInit {
   origem:boolean = true
 
   constructor(
-    private dialogRef : MatDialogRef<DialogEquipamentosComponent>,
+    private _dialogRef: MatDialogRef<DialogEquipamentosComponent>,
+    private _dialog   : MatDialog,
+    private _services : BackEndPhpService,
     @Inject(MAT_DIALOG_DATA) public data
   ) { }
 
   ngOnInit(): void {
+    console.log(this.data)
     this.setData()
   }
 
@@ -33,9 +38,35 @@ export class DialogEquipamentosComponent implements OnInit {
     }
   }
 
+  getHistorico(item) {
+    const obj = {
+      acao     : 'historicoEquipamento',
+      id_modelo: item.id
+    }
+    this._services.historicoEquipamento(JSON.stringify(obj)).subscribe(
+      (data) => {
+        this.openDialogHisttorico(data)
+      }
+    )
+  }
+
+  openDialogHisttorico(data){
+    this._dialog.open(DialogHistoricoEquipamentoComponent, {
+      data: {
+        data: data
+      },
+      width: '80%',
+      position: {
+        top: '8%'
+      }
+    })
+  }
+
   fechar() {
-    this.dialogRef.close();
+    this._dialogRef.close();
 
   }
+
+
 
 }

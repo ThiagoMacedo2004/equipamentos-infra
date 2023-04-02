@@ -75,4 +75,8 @@ export class BackEndPhpService {
     return this._http.post(this.URL, obj)
   }
 
+  public historicoEquipamento(obj: any) {
+    return this._http.post(this.URL, obj)
+  }
+
 }

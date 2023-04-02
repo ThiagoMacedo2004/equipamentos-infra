@@ -56,7 +56,7 @@
           </div>
 
           <div *ngIf="data.origem == false">
-            <button mat-icon-button  mat-button color="primary">
+            <button mat-icon-button  mat-button color="primary" (click)="getHistorico(equipamento)">
                 <mat-icon>manage_search</mat-icon>
             </button>
           </div>
