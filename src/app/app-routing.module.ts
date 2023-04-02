@@ -1,3 +1,4 @@
+import { NovoEquipamentoComponent } from './modelos-equipamentos/novo-equipamento/novo-equipamento.component';
 import { ModelosEquipamentosComponent } from './modelos-equipamentos/modelos-equipamentos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { NovoCadastroComponent } from './lista-comodatos/novo-cadastro/novo-cadastro.component';
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'modelosEquipamentos',
     component: ModelosEquipamentosComponent
+  },
+
+  {
+    path: 'novoEquipamento',
+    component: NovoEquipamentoComponent
   }
 
 ];

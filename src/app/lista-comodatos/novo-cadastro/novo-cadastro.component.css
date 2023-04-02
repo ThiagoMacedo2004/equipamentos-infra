@@ -1,9 +1,9 @@
-.container {
-    width: 98%;
-    margin: 10px auto;
+.containerr {
+    width: 80%;
+    margin: 10px auto 10px 10px;
 }
 
-.card {
+.cardd {
     max-height: 84vh;
     overflow-y: auto;
 }
@@ -19,4 +19,40 @@ mat-card-title {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.linha {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.marca {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  height: 100%;
+  width: 40%;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.tabela {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+mat-form-field.colaborador {
+  width: 40%;
+}
+
+mat-form-field.setor {
+  width: 35%;
+}
+
+form {
+  margin-bottom: 15px;
 }

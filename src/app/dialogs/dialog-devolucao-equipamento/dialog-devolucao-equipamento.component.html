@@ -1,0 +1,55 @@
+<h2 mat-dialog-title >Devolução de Equipamento</h2>
+<mat-dialog-content >
+
+  <div class="mb-3 row">
+    <div class="col">
+      <label for="marca" class="form-label">Marca</label>
+      <input readonly type="text" [value]="result.marca" class="form-control form-control-sm" id="marca" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="tipo" class="form-label">Tipo</label>
+      <input readonly type="text" [value]="result.tipo" class="form-control form-control-sm" id="tipo" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="modelo" class="form-label">Modelo</label>
+      <input readonly type="text" [value]="result.modelo" class="form-control form-control-sm" id="modelo" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="serial" class="form-label">Nº Serie</label>
+      <input readonly type="text" [value]="result.serial" class="form-control form-control-sm" id="serial" placeholder="Example input placeholder">
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-5">
+      <label for="nome" class="form-label">Colaborador</label>
+      <input readonly type="text" value="{{result.nome}} - {{result.matricula}}" class="form-control form-control-sm" id="nome" placeholder="Example input placeholder">
+    </div>
+    <div class="col-sm-5">
+      <label for="setor" class="form-label">Setor</label>
+      <input readonly type="text" [value]="result.setor" class="form-control form-control-sm" id="setor" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="data" class="form-label">Data</label>
+      <input readonly type="text" [value]="result.data" class="form-control form-control-sm" id="data" placeholder="Example input placeholder">
+    </div>
+  </div>
+  <mat-divider class="my-3"></mat-divider>
+  <div class="acao">
+    <mat-form-field appearance="fill">
+      <mat-label>Data Devolução</mat-label>
+      <input matInput [matDatepicker]="dp3" disabled [(ngModel)]="comodato.data" #input>
+      <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+      <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Observação</mat-label>
+      <textarea matInput [(ngModel)]="comodato.obs"></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="warn" mat-dialog-close cdkFocusInitial>Fechar</button>
+  <button mat-flat-button color="primary" (click)="devolucao()"[disabled]="!input.value" >Sim</button>
+</mat-dialog-actions>

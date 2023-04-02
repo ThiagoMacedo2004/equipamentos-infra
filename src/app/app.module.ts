@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
@@ -15,6 +15,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -23,6 +29,22 @@ import { ModelosEquipamentosComponent } from './modelos-equipamentos/modelos-equ
 import { ListaComodatosComponent } from './lista-comodatos/lista-comodatos.component';
 import { NovoCadastroComponent } from './lista-comodatos/novo-cadastro/novo-cadastro.component';
 import { HomeComponent } from './home/home.component';
+import { DialogEquipamentosComponent } from './dialogs/dialog-equipamentos/dialog-equipamentos.component';
+import { DialogColaboradoresComponent } from './dialogs/dialog-colaboradores/dialog-colaboradores.component';
+import { DialogSetoresComponent } from './dialogs/dialog-setores/dialog-setores.component';
+import { NovoEquipamentoComponent } from './modelos-equipamentos/novo-equipamento/novo-equipamento.component';
+import { DialogNovaMarcaComponent } from './dialogs/dialog-nova-marca/dialog-nova-marca.component';
+import { DialogNovoTipoComponent } from './dialogs/dialog-novo-tipo/dialog-novo-tipo.component';
+import { DialogDeletarComodatoComponent } from './dialogs/dialog-deletar-comodato/dialog-deletar-comodato.component';
+import { DialogDevolucaoEquipamentoComponent } from './dialogs/dialog-devolucao-equipamento/dialog-devolucao-equipamento.component';
+
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DialogHistoricoEquipamentoComponent } from './dialogs/dialog-historico-equipamento/dialog-historico-equipamento.component';
+
+registerLocaleData(ptBr);
+
 
 @NgModule({
   declarations: [
@@ -32,7 +54,16 @@ import { HomeComponent } from './home/home.component';
     ModelosEquipamentosComponent,
     ListaComodatosComponent,
     NovoCadastroComponent,
-    HomeComponent
+    HomeComponent,
+    DialogEquipamentosComponent,
+    DialogColaboradoresComponent,
+    DialogSetoresComponent,
+    NovoEquipamentoComponent,
+    DialogNovaMarcaComponent,
+    DialogNovoTipoComponent,
+    DialogDeletarComodatoComponent,
+    DialogDevolucaoEquipamentoComponent,
+    DialogHistoricoEquipamentoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +81,17 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgbModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

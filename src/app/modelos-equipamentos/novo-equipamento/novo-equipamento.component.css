@@ -1,0 +1,34 @@
+.container {
+  width: 80%;
+  margin: 10px auto 10px 10px;
+}
+
+.card {
+  max-height: 84vh;
+  overflow-y: auto;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+mat-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

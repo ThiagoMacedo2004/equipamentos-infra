@@ -1,0 +1,30 @@
+table {
+  width: 100%;
+}
+
+.containerr {
+  width: 98%;
+  margin: 10px auto;
+}
+
+.cardd {
+  max-height: 84vh;
+  overflow-y: auto;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

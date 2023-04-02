@@ -1,0 +1,131 @@
+<h2 mat-dialog-title>Deletar Comodato</h2>
+<mat-dialog-content class="mat-typography">
+
+  <div class="mb-3 row">
+    <div class="col">
+      <label for="marca" class="form-label">Marca</label>
+      <input readonly type="text" [value]="result.marca" class="form-control form-control-sm" id="marca" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="tipo" class="form-label">Tipo</label>
+      <input readonly type="text" [value]="result.tipo" class="form-control form-control-sm" id="tipo" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="modelo" class="form-label">Modelo</label>
+      <input readonly type="text" [value]="result.modelo" class="form-control form-control-sm" id="modelo" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="serial" class="form-label">Nº Serie</label>
+      <input readonly type="text" [value]="result.serial" class="form-control form-control-sm" id="serial" placeholder="Example input placeholder">
+    </div>
+  </div>
+
+  <mat-divider class="my-3"></mat-divider>
+
+  <div class="mb-3 row">
+    <div class="col-sm-5">
+      <label for="nome" class="form-label">Colaborador</label>
+      <input readonly type="text" value="{{result.nome}} - {{result.matricula}}" class="form-control form-control-sm" id="nome" placeholder="Example input placeholder">
+    </div>
+    <div class="col-sm-5">
+      <label for="setor" class="form-label">Setor</label>
+      <input readonly type="text" [value]="result.setor" class="form-control form-control-sm" id="setor" placeholder="Example input placeholder">
+    </div>
+    <div class="col">
+      <label for="data" class="form-label">Data</label>
+      <input readonly type="text" [value]="result.data" class="form-control form-control-sm" id="data" placeholder="Example input placeholder">
+    </div>
+  </div>
+
+  <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+
+    <ng-container matColumnDef="marca">
+      <th mat-header-cell *matHeaderCellDef> MARCA </th>
+      <td mat-cell *matCellDef="let item"> {{item.marca}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo">
+      <th mat-header-cell *matHeaderCellDef> TIPO </th>
+      <td mat-cell *matCellDef="let item"> {{item.tipo}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="modelo">
+      <th mat-header-cell *matHeaderCellDef> MODELO </th>
+      <td mat-cell *matCellDef="let item"> {{item.modelo}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="serial">
+      <th mat-header-cell *matHeaderCellDef> Nº DE SERIE </th>
+      <td mat-cell *matCellDef="let item"> {{item.serial}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> NOME</th>
+      <td mat-cell *matCellDef="let item"> {{item.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="matricula">
+      <th mat-header-cell *matHeaderCellDef> MATRICULA </th>
+      <td mat-cell *matCellDef="let item"> {{item.matricula}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="setor">
+      <th mat-header-cell *matHeaderCellDef> SETOR </th>
+      <td mat-cell *matCellDef="let item"> {{item.setor}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef> DATA </th>
+      <td mat-cell *matCellDef="let item"> {{item.data}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="observacao">
+      <th mat-header-cell *matHeaderCellDef> OBSERVAÇÃO </th>
+      <td mat-cell *matCellDef="let item"> {{item.observacao}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table> -->
+
+  <!-- <mat-form-field appearance="outline">
+    <mat-label>Marca</mat-label>
+    <input  matInput [value]="result.marca">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo</mat-label>
+    <input  matInput [value]="result.tipo">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Modelo</mat-label>
+    <input  matInput [value]="result.modelo">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nº Serie</mat-label>
+    <input  matInput [value]="result.serial">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input  matInput [value]="result.nome">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Matricula</mat-label>
+    <input  matInput [value]="result.matricula">
+  </mat-form-field> -->
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div class="action">
+    <h3>Deseja realmente deletar este comodato ?</h3>
+    <button mat-flat-button color="warn" mat-dialog-close cdkFocusInitial>Fechar</button>
+    <button mat-flat-button color="primary" (click)="deletarComodato()" >Sim</button>
+  </div>
+</mat-dialog-actions>

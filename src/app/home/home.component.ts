@@ -9,11 +9,11 @@ export class HomeComponent implements OnInit {
 
   links = [
     {icon: "home", nome: "Comodatos", link: "/listaComodatos"},
-    {icon: "groups", nome: "Usuários", link: "/usuarios"},
+    {icon: "groups", nome: "Colaboradores/Setores", link: "/usuarios"},
     {icon: "devices", nome: "Equipamentos", link: "/modelosEquipamentos"}
   ]
 
-  
+
 
   constructor() { }
 

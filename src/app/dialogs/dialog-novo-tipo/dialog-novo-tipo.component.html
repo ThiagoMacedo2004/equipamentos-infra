@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Novo Tipo</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Cadastre um novo Tipo:</p>
+  <form [formGroup]="formGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Novo Tipo</mat-label>
+      <input formControlName="tipo" matInput>
+      <mat-hint>Informe o novo Tipo</mat-hint>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="warn" mat-dialog-close>Fechar</button>
+  <button mat-flat-button color="primary" [disabled]="!formGroup.valid" (click)="setTipo()" cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>

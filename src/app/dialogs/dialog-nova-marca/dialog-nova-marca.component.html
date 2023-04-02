@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Nova Marca</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Cadastre uma nova Marca:</p>
+  <form [formGroup]="formGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Nova Marca</mat-label>
+      <input formControlName="marca" matInput>
+      <mat-hint>Informe o nome da nova Marca</mat-hint>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="warn" mat-dialog-close>Fechar</button>
+  <button mat-flat-button color="primary" [disabled]="!formGroup.valid" (click)="setMarca()" cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>

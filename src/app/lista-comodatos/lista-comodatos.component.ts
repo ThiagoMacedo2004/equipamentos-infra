@@ -1,8 +1,11 @@
+import { DialogDevolucaoEquipamentoComponent } from './../dialogs/dialog-devolucao-equipamento/dialog-devolucao-equipamento.component';
+import { DialogDeletarComodatoComponent } from './../dialogs/dialog-deletar-comodato/dialog-deletar-comodato.component';
+import { MatDialog } from '@angular/material/dialog';
 import { BackEndPhpService } from './../services/back-end-php.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-lista-comodatos',
@@ -12,27 +15,30 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ListaComodatosComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'tipo',
+    'situacao',
     'marca',
+    'tipo',
     'modelo',
     'serial',
     'nome',
     'matricula',
     'setor',
     'data',
-    'observacao',
     'acao'
   ];
-  dataSource = new MatTableDataSource();
+  dataSource = new MatTableDataSource()
 
-  result:Comodato[] 
+  result:Comodato[]
+
+  @ViewChild(MatSort) sort: MatSort;
+
 
   constructor(
     private _services: BackEndPhpService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _liveAnnouncer: LiveAnnouncer,
+    private _dialog: MatDialog
   ) { }
 
-  @ViewChild(MatSort) sort: MatSort;
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -60,12 +66,48 @@ export class ListaComodatosComponent implements OnInit {
   }
 
   announceSortChange(sortState: Sort) {
-    
+
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+  deletar(item) {
+    this._dialog.open(DialogDeletarComodatoComponent, {
+      data: {
+        data: item
+      },
+      width:'60%',
+      position: {
+        top:'8%'
+      }
+    }).afterClosed().subscribe(
+      (data) => {
+        if(data) {
+          this.comodatos()
+        }
+      }
+    )
+  }
+
+  devolucaoEquipamento(item) {
+    this._dialog.open(DialogDevolucaoEquipamentoComponent, {
+      data: {
+        data: item
+      },
+      width:'60%',
+      position: {
+        top:'8%'
+      }
+    }).afterClosed().subscribe(
+      (data) => {
+        if(data) {
+          this.comodatos()
+        }
+      }
+    )
   }
 
 }
@@ -79,5 +121,6 @@ export interface Comodato {
   matricula:string,
   setor: string,
   data: string,
-  observacao: string
+  observacao: string,
+  situacao: string
 }
