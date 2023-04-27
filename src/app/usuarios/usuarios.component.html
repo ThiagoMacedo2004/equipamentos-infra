@@ -1,12 +1,12 @@
 <div class="containerr">
 
-  <mat-card class="colaborador">
+  <mat-card class="colaborador mat-elevation-z8">
     <mat-card-header>
       <mat-card-title>
         <mat-icon>groups</mat-icon>
         <span> Colaboradores</span>
       </mat-card-title>
-      <button mat-raised-button color="primary" routerLink="">+ Novo</button>
+      <button mat-raised-button color="primary" (click)="dialogUsuario('Cadastrar Novo Colaborador', 'novoColaborador', '')">+ Novo</button>
     </mat-card-header>
 
     <mat-card-content>
@@ -35,7 +35,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by acao">
             </th>
             <td mat-cell *matCellDef="let item">
-              <button mat-icon-button color="primary">
+              <button mat-icon-button color="primary" (click)="dialogUsuario('Editar Colaborador', 'editarColaborador', item)">
                 <mat-icon>edit</mat-icon>
               </button>
             </td>
@@ -52,13 +52,13 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="colaborador">
+  <mat-card class="colaborador mat-elevation-z8">
     <mat-card-header>
       <mat-card-title>
         <mat-icon>work</mat-icon>
         <span> Setores</span>
       </mat-card-title>
-      <button mat-raised-button color="primary" routerLink="">+ Novo</button>
+      <button mat-raised-button color="primary" >+ Novo</button>
     </mat-card-header>
 
     <mat-card-content>

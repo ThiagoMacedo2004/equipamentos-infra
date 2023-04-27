@@ -60,8 +60,10 @@ export class NovoCadastroComponent implements OnInit {
     this._services.salvarComodato(JSON.stringify(this.formulario)).subscribe(
       (data:any) => {
         if(data.sucesso) {
-          alert('Comodato cadastrado com sucesso!!')
+          this._services.exibirMsg('Comodato salvo com sucesso!!')
           this._router.navigate(['/listaComodatos'])
+        } else {
+          this._services.exibirMsg(data.error)
         }
       }
     )
@@ -146,7 +148,7 @@ export class NovoCadastroComponent implements OnInit {
       },
       width: '50%',
       position: {
-        top: '8%'
+        top: '6%'
       }
     }).afterClosed().subscribe(
       (equipamento) => {

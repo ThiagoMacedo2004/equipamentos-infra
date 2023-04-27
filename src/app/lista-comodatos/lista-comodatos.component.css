@@ -1,5 +1,14 @@
+mat-form-field {
+  width: 100%;
+}
+
 table {
     width: 100%;
+}
+
+table th, table td {
+  font-size: 12px;
+  text-align: center;
 }
 
 .containerr {

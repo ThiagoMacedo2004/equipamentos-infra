@@ -42,6 +42,7 @@ import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DialogHistoricoEquipamentoComponent } from './dialogs/dialog-historico-equipamento/dialog-historico-equipamento.component';
+import { DialogUsuariosComponent } from './dialogs/dialog-usuarios/dialog-usuarios.component';
 
 registerLocaleData(ptBr);
 
@@ -64,6 +65,7 @@ registerLocaleData(ptBr);
     DialogDeletarComodatoComponent,
     DialogDevolucaoEquipamentoComponent,
     DialogHistoricoEquipamentoComponent,
+    DialogUsuariosComponent,
   ],
   imports: [
     BrowserModule,

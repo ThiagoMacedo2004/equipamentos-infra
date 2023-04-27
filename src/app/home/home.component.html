@@ -2,23 +2,18 @@
     <span>Comodatos</span>
 </mat-toolbar>
 
-<mat-drawer-container class="example-container">
-
-    <mat-drawer mode="side" opened>
-        <mat-nav-list>
-            <mat-list-item *ngFor="let link of links" [fixedInViewport]="true" routerLinkActive="link-active" >
-
-               <a mat-list-option routerLink="{{link.link}}" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="link-active">
-                    <i class="material-icons">{{link.icon}} </i>
-                    <span>{{ link.nome }}</span>
-                </a>
-
-            </mat-list-item>
-        </mat-nav-list>
-    </mat-drawer>
-
-    <mat-drawer-content>
-        <router-outlet></router-outlet>
-    </mat-drawer-content>
-
-</mat-drawer-container>
+<mat-sidenav-container class="example-container" >
+  <mat-sidenav mode="side" opened disableClose fixedInViewport="true" fixedTopGap="64">
+    <mat-nav-list class="nav-list" >
+      <a mat-list-item  *ngFor="let link of links" routerLink="{{link.link}}" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+        <i class="material-icons">{{link.icon}}</i>
+        <!-- <mat-icon mat-list-icon >{{link.icon}} </mat-icon>
+        <span matLine>{{ link.nome }}</span> -->
+        {{ link.nome }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

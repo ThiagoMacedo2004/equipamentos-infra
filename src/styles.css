@@ -14,3 +14,37 @@ div.mat-form-field-infix {
 .example-list-wrapping {
   max-width: 500px;
 }
+
+.mat-sort-header-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  letter-spacing: normal;
+  outline: 0;
+}
+
+th {
+  text-align: center;
+}
+
+.mat-cell {
+  text-align: center;
+}
+
+table td.mat-cell:first-of-type {
+  padding-left: 10px;
+}
+
+table th.mat-header-cell:first-of-type {
+  padding-left: 9px;
+}
+
+table th.mat-header-cell {
+  text-align: center;
+}
+
+div.mat-card-header-text {
+  margin: 0;
+}

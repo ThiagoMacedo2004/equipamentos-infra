@@ -8,7 +8,12 @@ table {
 }
 
 .cardd {
-  max-height: 84vh;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.tabela {
+  max-height: 70vh;
   overflow-y: auto;
 }
 

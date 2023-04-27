@@ -16,6 +16,7 @@ export class ListaComodatosComponent implements OnInit {
 
   displayedColumns: string[] = [
     'situacao',
+    'id',
     'marca',
     'tipo',
     'modelo',
@@ -92,6 +93,24 @@ export class ListaComodatosComponent implements OnInit {
     )
   }
 
+  baixarPDf(item) {
+    const obj = {
+      acao: 'baixarPDf',
+      id  : item.id,
+      nome: item.nome
+    }
+
+    this._services.baixarPDf(JSON.stringify(obj)).subscribe(
+      (data:any) =>{
+        console.log(data)
+        if(data.error) {
+          this._services.exibirMsg(data.error)
+        }
+      }
+
+    )
+  }
+
   devolucaoEquipamento(item) {
     this._dialog.open(DialogDevolucaoEquipamentoComponent, {
       data: {
@@ -108,6 +127,11 @@ export class ListaComodatosComponent implements OnInit {
         }
       }
     )
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

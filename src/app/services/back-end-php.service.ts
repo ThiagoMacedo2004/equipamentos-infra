@@ -7,10 +7,11 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 export class BackEndPhpService {
 
   private URL = 'http://localhost/projetos/equipamentos-infra/Comodatos.php';
+  // private URL = 'http://10.20.11.151/equipamentos-infra/Comodatos.php';
 
   confgMsg: MatSnackBarConfig = {
-    horizontalPosition : 'start',
-    verticalPosition   : 'bottom',
+    horizontalPosition : 'center',
+    verticalPosition   : 'top',
     duration          : 5000
   }
 
@@ -22,6 +23,8 @@ export class BackEndPhpService {
   public exibirMsg(msg:any) {
     this.msg.open(msg, 'X', this.confgMsg)
   }
+
+
 
   public listaEquipamentos(obj:any) {
     return this._http.post(this.URL, obj)
@@ -76,6 +79,18 @@ export class BackEndPhpService {
   }
 
   public historicoEquipamento(obj: any) {
+    return this._http.post(this.URL, obj)
+  }
+
+  public novoColaborador(obj:any) {
+    return this._http.post(this.URL, obj)
+  }
+
+  public editarColaborador(obj:any) {
+    return this._http.post(this.URL, obj)
+  }
+
+  public baixarPDf(obj: any) {
     return this._http.post(this.URL, obj)
   }
 

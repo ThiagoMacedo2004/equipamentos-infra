@@ -98,7 +98,7 @@ export class NovoEquipamentoComponent implements OnInit {
     this._services.novoEquipamento(JSON.stringify(this.formGroup.value)).subscribe(
       (data:any) => {
         if(data.sucesso) {
-          this.getMarcas()
+          this._router.navigate(['/modelosEquipamentos'])
           this._services.exibirMsg(`Equipamento cadastrado com sucesso!!`)
         } else {
           this._services.exibirMsg(data)

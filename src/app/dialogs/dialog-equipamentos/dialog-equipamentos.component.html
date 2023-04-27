@@ -4,6 +4,10 @@
 </h2>
 <span mat-dialog-content>Marca: {{ marca }}</span>
 <div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex:Dell..." #input>
+    </mat-form-field>
   <div class="tabela" *ngIf="data.equipamentos.length > 0">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
 
@@ -43,7 +47,7 @@
       </ng-container>
 
       <ng-container matColumnDef="acao">
-        <th mat-header-cell *matHeaderCellDef> AÇÃO </th>
+        <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let equipamento">
           <div *ngIf="data.origem == true">
             <button mat-icon-button *ngIf="equipamento.disponivel == 'Sim'" [mat-dialog-close]="equipamento" mat-button color="primary">

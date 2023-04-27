@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BackEndPhpService } from '../services/back-end-php.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogUsuariosComponent } from '../dialogs/dialog-usuarios/dialog-usuarios.component';
 
 @Component({
   selector: 'app-usuarios',
@@ -25,7 +27,8 @@ export class UsuariosComponent implements OnInit {
 
   constructor(
     private _services: BackEndPhpService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _liveAnnouncer: LiveAnnouncer,
+    private _dialog: MatDialog
   ) { }
 
 
@@ -51,6 +54,27 @@ export class UsuariosComponent implements OnInit {
     this.result = data
     this.dataSource = new MatTableDataSource(this.result)
     this.dataSource.sort = this.sort;
+  }
+
+
+  dialogUsuario(titulo: string, acao:string, data) {
+    this._dialog.open(DialogUsuariosComponent, {
+      data: {
+        data: data,
+        titulo: titulo,
+        acao: acao
+      },
+      position: {
+        top: '8%'
+      },
+      width: '25%'
+    }).afterClosed().subscribe(
+      (data) => {
+        if(data) {
+          this.getColaboradores()
+        }
+      }
+    )
   }
 
   announceSortChange(sortState: Sort) {
