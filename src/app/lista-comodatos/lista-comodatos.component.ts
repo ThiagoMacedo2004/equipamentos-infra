@@ -16,14 +16,14 @@ export class ListaComodatosComponent implements OnInit {
 
   displayedColumns: string[] = [
     'situacao',
-    'id',
-    'marca',
-    'tipo',
-    'modelo',
-    'serial',
+
     'nome',
     'matricula',
     'setor',
+    'tipo',
+    'modelo',
+    'marca',
+    'serial',
     'data',
     'acao'
   ];

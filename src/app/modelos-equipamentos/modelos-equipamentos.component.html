@@ -38,6 +38,11 @@
             <td mat-cell *matCellDef="let equipamento"> {{equipamento.qtd}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="disponivel">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by modelo">DISPONIVEL</th>
+            <td mat-cell *matCellDef="let equipamento"> {{equipamento.disponivel}} </td>
+          </ng-container>
+
 
           <ng-container matColumnDef="acao">
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by acao"></th>

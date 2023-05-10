@@ -18,6 +18,7 @@ export class ModelosEquipamentosComponent implements OnInit {
     'tipo',
     'modelo',
     'qtd',
+    'disponivel',
     'acao'
   ]
 
