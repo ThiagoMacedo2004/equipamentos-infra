@@ -33,6 +33,11 @@ th {
   text-align: center;
 }
 
+table tr.mat-row {
+  background: none;
+  height: 0;
+}
+
 table td.mat-cell:first-of-type {
   padding-left: 10px;
 }
@@ -43,8 +48,13 @@ table th.mat-header-cell:first-of-type {
 
 table th.mat-header-cell {
   text-align: center;
+
 }
 
 div.mat-card-header-text {
+  margin: 0;
+}
+
+.mat-checkbox > label {
   margin: 0;
 }

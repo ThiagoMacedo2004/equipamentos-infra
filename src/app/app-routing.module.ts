@@ -11,14 +11,13 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'listaComodatos',
-    pathMatch: 'full'
-  },
-
-  {
-    path: 'listaComodatos',
     component: ListaComodatosComponent
   },
+
+  // {
+  //   path: 'listaComodatos',
+  //   component: ListaComodatosComponent
+  // },
 
   {
     path: 'novoCadastro',

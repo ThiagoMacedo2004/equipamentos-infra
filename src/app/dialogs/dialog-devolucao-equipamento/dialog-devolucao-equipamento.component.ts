@@ -10,7 +10,7 @@ import { BackEndPhpService } from 'src/app/services/back-end-php.service';
 export class DialogDevolucaoEquipamentoComponent implements OnInit {
 
   result:any
-
+  checked:boolean = false
   comodato:any = {}
 
   constructor(
@@ -32,7 +32,8 @@ export class DialogDevolucaoEquipamentoComponent implements OnInit {
       id       : this.result.id,
       id_modelo: this.result.id_modelo,
       data     : this.getData(),
-      obs      : this.comodato.obs
+      obs      : this.comodato.obs,
+      situacao : this.checked
     }
     console.log(obj)
     this._services.devolucaoEquipamento(JSON.stringify(obj)).subscribe(
@@ -64,5 +65,6 @@ export class DialogDevolucaoEquipamentoComponent implements OnInit {
 
     return `${ano}-${mes}-${dia}`
   }
+
 
 }

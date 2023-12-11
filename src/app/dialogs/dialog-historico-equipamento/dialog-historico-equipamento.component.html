@@ -36,8 +36,8 @@
         <td>{{item.nome}}</td>
         <td>{{item.matricula}}</td>
         <td>{{item.setor}}</td>
-        <td>{{item.data}}</td>
-        <td>{{item.data_devolucao ? (item.data_devolucao): '-'}}</td>
+        <td>{{item.data | date: 'dd/MM/yyyy'}}</td>
+        <td>{{item.data_devolucao ? (item.data_devolucao | date: 'dd/MM/yyyy'): '-'}}</td>
         <td>{{item.observacao}}</td>
       </tr>
     </tbody>

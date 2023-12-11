@@ -6,6 +6,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { SelectionModel } from '@angular/cdk/collections';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-lista-comodatos',
@@ -15,8 +17,8 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 export class ListaComodatosComponent implements OnInit {
 
   displayedColumns: string[] = [
+    'select',
     'situacao',
-
     'nome',
     'matricula',
     'setor',
@@ -27,7 +29,9 @@ export class ListaComodatosComponent implements OnInit {
     'data',
     'acao'
   ];
-  dataSource = new MatTableDataSource()
+  dataSource = new MatTableDataSource<Comodato>()
+  selection = new SelectionModel<Comodato>(true, []);
+
 
   result:Comodato[]
 
@@ -55,6 +59,7 @@ export class ListaComodatosComponent implements OnInit {
     }
     this._services.comodatos(JSON.stringify(obj)).subscribe(
       (data:Comodato[]) => {
+        console.log(data)
         this.setData(data)
       }
     )
@@ -129,9 +134,55 @@ export class ListaComodatosComponent implements OnInit {
     )
   }
 
+  gerarExcel() {
+    console.log(this.selection.selected)
+
+    const obj = {
+      acao: 'excel',
+      data: this.selection.selected
+    }
+
+    this._services.excel(JSON.stringify(obj)).subscribe(
+      (data) => {
+        this._services.exibirMsg(data)
+      },
+      (e:HttpErrorResponse) => {
+        this._services.exibirMsg(e.message)
+      }
+    )
+
+  }
+
   applyFilter(event: Event) {
+    this.selection.clear();
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    if(this.dataSource.filteredData.length == 0) {
+      const numSelected = this.selection.selected.length;
+      const numRows = this.dataSource.data.length;
+      return numSelected === numRows;
+    } else {
+      const numSelected = this.selection.selected.length;
+      const numRows = this.dataSource.filteredData.length;
+      return numSelected === numRows;
+    }
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.dataSource.filteredData.length  == 0 ? this.selection.select(...this.dataSource.data) : this.selection.select(...this.dataSource.filteredData)
+
+    // this.selection.select(...this.dataSource.data);
   }
 
 }

@@ -31,7 +31,7 @@
     </div>
     <div class="col">
       <label for="data" class="form-label">Data</label>
-      <input readonly type="text" [value]="result.data" class="form-control form-control-sm" id="data" placeholder="Example input placeholder">
+      <input readonly type="text" [value]="result.data | date: 'dd/MM/yyyy'" class="form-control form-control-sm" id="data" placeholder="Example input placeholder">
     </div>
   </div>
   <mat-divider class="my-3"></mat-divider>
@@ -47,6 +47,11 @@
       <mat-label>Observação</mat-label>
       <textarea matInput [(ngModel)]="comodato.obs"></textarea>
     </mat-form-field>
+
+    <section class="example-section">
+      <mat-checkbox  [(ngModel)]="checked">Aparelho Danificado ?</mat-checkbox>
+    </section>
+
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

@@ -2,6 +2,11 @@ table {
   width: 100%;
 }
 
+.hover-tr:hover {
+  background-color: whitesmoke;
+  font-weight: 500;
+}
+
 .containerr {
   width: 98%;
   margin: 10px auto;

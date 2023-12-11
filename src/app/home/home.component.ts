@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   links = [
-    {icon: "home", nome: "Comodatos", link: "/listaComodatos"},
-    {icon: "groups", nome: "Colaboradores/Setores", link: "/usuarios"},
-    {icon: "devices", nome: "Equipamentos", link: "/modelosEquipamentos"}
+    {icon: "home", nome: "Comodatos", link: "/", title: "Lista de Comodatos"},
+    {icon: "groups", nome: "Colaboradores/Setores", link: "/usuarios", title: "Lista de Colaboradores"},
+    {icon: "devices", nome: "Equipamentos", link: "/modelosEquipamentos", title: "Lista de Equipamentos"}
   ]
 
 

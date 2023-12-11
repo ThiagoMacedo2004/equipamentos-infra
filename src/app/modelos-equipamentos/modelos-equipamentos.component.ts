@@ -14,9 +14,9 @@ import { DialogEquipamentosComponent } from '../dialogs/dialog-equipamentos/dial
 export class ModelosEquipamentosComponent implements OnInit {
 
   displayedColumns:string[] = [
-    'marca',
     'tipo',
     'modelo',
+    'marca',
     'qtd',
     'disponivel',
     'acao'

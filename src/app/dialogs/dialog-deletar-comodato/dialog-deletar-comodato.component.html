@@ -33,7 +33,7 @@
     </div>
     <div class="col">
       <label for="data" class="form-label">Data</label>
-      <input readonly type="text" [value]="result.data" class="form-control form-control-sm" id="data" placeholder="Example input placeholder">
+      <input readonly type="text" [value]="result.data | date: 'dd/MM/yyyy'" class="form-control form-control-sm" id="data" placeholder="Example input placeholder">
     </div>
   </div>
 

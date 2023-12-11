@@ -21,6 +21,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
 
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -91,7 +94,8 @@ registerLocaleData(ptBr);
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

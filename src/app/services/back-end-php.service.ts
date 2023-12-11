@@ -6,8 +6,8 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 })
 export class BackEndPhpService {
 
-  private URL = 'http://localhost/projetos/equipamentos-infra/Comodatos.php';
-  // private URL = 'http://10.20.11.151/equipamentos-infra/Comodatos.php';
+  // private URL = 'http://localhost/equipamentos-infra/Comodatos.php';
+  private URL = 'http://10.20.11.151/producao-equipamentos-infra/equipamentos-infra/equipamentos-infra/Comodatos.php';
 
   confgMsg: MatSnackBarConfig = {
     horizontalPosition : 'center',
@@ -62,6 +62,14 @@ export class BackEndPhpService {
     return this._http.post(this.URL, obj)
   }
 
+  public getTiposDois(obj: any) {
+    return this._http.post(this.URL, obj)
+  }
+
+  public getModelos(obj:any) {
+    return this._http.post(this.URL, obj)
+  }
+
   public novoEquipamento(obj:any) {
     return this._http.post(this.URL, obj)
   }
@@ -91,6 +99,10 @@ export class BackEndPhpService {
   }
 
   public baixarPDf(obj: any) {
+    return this._http.post(this.URL, obj)
+  }
+
+   public excel(obj: any) {
     return this._http.post(this.URL, obj)
   }
 

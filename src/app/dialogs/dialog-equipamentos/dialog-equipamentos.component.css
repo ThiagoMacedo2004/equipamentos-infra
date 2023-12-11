@@ -19,3 +19,9 @@ h2 {
   justify-content: space-between;
   margin: 0;
 }
+
+.btns-acao {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

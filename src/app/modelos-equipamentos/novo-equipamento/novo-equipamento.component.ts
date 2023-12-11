@@ -1,7 +1,7 @@
 import { DialogNovoTipoComponent } from './../../dialogs/dialog-novo-tipo/dialog-novo-tipo.component';
 import { DialogNovaMarcaComponent } from './../../dialogs/dialog-nova-marca/dialog-nova-marca.component';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BackEndPhpService } from 'src/app/services/back-end-php.service';
@@ -15,10 +15,12 @@ export class NovoEquipamentoComponent implements OnInit {
 
   formGroup: FormGroup
 
-  result: any[] = []
-  marcas: any[] = []
-  tipos : any[] = []
-  value : string
+
+  result : any[] = []
+  marcas : any[] = []
+  modelos: any[] = []
+  tipos  : any[] = []
+  value  : string
   constructor(
     private _services: BackEndPhpService,
     private _fb      : FormBuilder,
@@ -92,6 +94,12 @@ export class NovoEquipamentoComponent implements OnInit {
     )
   }
 
+  changeMarca() {
+    this.formGroup.get("id_tipo").reset({value: ''})
+    this.formGroup.get("modelo").reset({value: '', disabled: true})
+    this.modelos = []
+  }
+
 
 
   novoEquipamento() {
@@ -106,6 +114,8 @@ export class NovoEquipamentoComponent implements OnInit {
       }
     )
   }
+
+
 
   mascaraMoeda() {
     if(this.value == '0' || this.value == '') {
