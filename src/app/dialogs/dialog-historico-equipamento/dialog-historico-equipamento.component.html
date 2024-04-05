@@ -1,5 +1,5 @@
 <h2 mat-dialog-title *ngIf="result.length > 0">{{result[0].tipo}} - {{result[0].marca}} - {{result[0].modelo}} - {{result[0].serial}}</h2>
-<p>Histório do Equipamento</p>
+<h2 mat-dialog-title>Histório do Equipamento</h2>
 <mat-dialog-content class="mat-typography">
   <h3 *ngIf="result.length == 0">Nenhum historico para o equipamento Informado.</h3>
   <table class="table table-striped table-sm" *ngIf="result.length > 0">
@@ -43,3 +43,6 @@
     </tbody>
   </table>
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button [mat-dialog-close]>FECHAR</button>
+</mat-dialog-actions>

@@ -115,16 +115,26 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by observacao">
             </th>
             <td mat-cell *matCellDef="let item">
-              <button mat-icon-button color="primary" (click)="devolucaoEquipamento(item)">
+              <button mat-icon-button color="primary" (click)="devolucaoEquipamento(item)" [disabled]="item.situacao === 'DEVOLVIDO'">
                 <mat-icon>search</mat-icon>
               </button>
 
-              <button mat-icon-button color="warn" (click)="deletar(item)">
+              <button mat-icon-button color="warn" (click)="deletar(item)" [disabled]="item.situacao === 'DEVOLVIDO'">
                 <mat-icon>delete</mat-icon>
               </button>
 
               <button mat-icon-button style="color: rgba(0,0,0,.5);" (click)="baixarPDf(item)">
                 <mat-icon>download</mat-icon>
+              </button>
+
+              <button mat-icon-button
+                      color="accent"
+                      [ngClass]="{
+                        'ativo': item.situacao === 'ATIVO',
+                        'devolvido': item.situacao === 'DEVOLVIDO'
+                      }" (click)="baixarPdfProtocoloDevolucao(item)"
+                      [disabled]="item.situacao === 'ATIVO'">
+                <mat-icon>file_open</mat-icon>
               </button>
             </td>
           </ng-container>

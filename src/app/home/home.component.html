@@ -5,12 +5,14 @@
 <mat-sidenav-container class="example-container" >
   <mat-sidenav mode="side" opened disableClose fixedInViewport="true" fixedTopGap="64">
     <mat-nav-list class="nav-list" >
+
       <a mat-list-item *ngFor="let link of links" [title]="link.title" routerLink="{{link.link}}" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
         <i class="material-icons">{{link.icon}}</i>
         <!-- <mat-icon mat-list-icon >{{link.icon}} </mat-icon>
         <span matLine>{{ link.nome }}</span> -->
         {{ link.nome }}
       </a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

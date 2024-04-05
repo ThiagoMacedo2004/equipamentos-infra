@@ -60,8 +60,8 @@ export class NovoCadastroComponent implements OnInit {
     this._services.salvarComodato(JSON.stringify(this.formulario)).subscribe(
       (data:any) => {
         if(data.sucesso) {
+          this._router.navigate([''])
           this._services.exibirMsg('Comodato salvo com sucesso!!')
-          this._router.navigate(['/listaComodatos'])
         } else {
           this._services.exibirMsg(data.error)
         }
@@ -115,8 +115,8 @@ export class NovoCadastroComponent implements OnInit {
       }
     }).afterClosed().subscribe(
       (colaborador) => {
-        this.colaborador.nome = `${colaborador.matricula} - ${colaborador.nome}`
-
+        this.colaborador.matriculaNome = `${colaborador.matricula} - ${colaborador.nome}`
+        this.colaborador.nome = colaborador.nome
         this.formulario.id_usuario = colaborador.id
       }
     )
@@ -211,6 +211,7 @@ export class NovoCadastroComponent implements OnInit {
 
     this.colaborador = {
       nome: '',
+      matriculaNome: '',
       matricula: '',
       setor: ''
     }

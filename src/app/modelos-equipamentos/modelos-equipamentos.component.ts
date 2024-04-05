@@ -15,8 +15,8 @@ export class ModelosEquipamentosComponent implements OnInit {
 
   displayedColumns:string[] = [
     'tipo',
-    'modelo',
     'marca',
+    'modelo',
     'qtd',
     'disponivel',
     'acao'

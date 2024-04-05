@@ -21,6 +21,7 @@ export class DialogDevolucaoEquipamentoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.data)
     this.result = this.data.data
     this.comodato.data = ''
     this.comodato.obs = this.result.observacao

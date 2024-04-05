@@ -102,6 +102,14 @@ export class BackEndPhpService {
     return this._http.post(this.URL, obj)
   }
 
+  public gerarProtocoloDevolucao(obj: any) {
+    return this._http.post(this.URL, obj)
+  }
+
+  public baixarPdfProtocoloDevolucao(obj: any) {
+    return this._http.post(this.URL, obj)
+  }
+
    public excel(obj: any) {
     return this._http.post(this.URL, obj)
   }

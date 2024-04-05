@@ -16,28 +16,57 @@ mat-nav-list > a i {
 mat-nav-list > a {
   color: #c2c2c2;
   font-size: 14px;
+  display: flex;
+
+}
+
+mat-nav-list > a::before {
+  content: "";
+  border-left: 4px solid transparent;
+  transition: 100ms ease-in-out;
+  border-radius: 4px;
+  margin-left: 4px;
 }
 
 mat-nav-list a:hover {
-  background-color: rgba(0, 0, 0, 0.25);
-  color: rgb(108 182 255);;
-  font-weight: 700;
+  background: rgba(0, 0, 0, 0.25);
+  transition: 200ms;
 }
 
+mat-nav-list a:hover::before{
+  content: "";
+  border-left: 4px solid rgb(108 182 255);
 
+  border-radius: 4px;
+  margin-left: 4px;
 
+}
+
+mat-nav-list > a.active::before  {
+  content: "";
+  border-left: 4px solid rgb(108 182 255);
+  transition: 100ms ease-in-out;
+}
 
 mat-nav-list .active {
-  /* margin-left: 4px; */
+  background-color: rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  color: rgb(108 182 255);
+  transform: translateY(-5px);
+  transition: 300ms ease-in-out;
+}
+
+/*
+mat-nav-list .active {
+
   transition: 0.2s;
   border-left: 3px solid rgb(108 182 255);
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 2px;
   color: rgb(108 182 255);
-    /* color: #3f51b5; */
-    /* color: #f2f2f2; */
+
   font-weight: 900;
-}
+} */
 
 mat-sidenav-content {
   height: 91.1vh;

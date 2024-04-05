@@ -23,8 +23,8 @@ export class ListaComodatosComponent implements OnInit {
     'matricula',
     'setor',
     'tipo',
-    'modelo',
     'marca',
+    'modelo',
     'serial',
     'data',
     'acao'
@@ -113,6 +113,32 @@ export class ListaComodatosComponent implements OnInit {
         }
       }
 
+    )
+  }
+
+  baixarPdfProtocoloDevolucao(item) {
+    const obj = {
+      acao: 'baixarPdfProtocoloDevolucao',
+      id  : item.id,
+      nome: item.nome
+    }
+
+    this._services.baixarPdfProtocoloDevolucao(JSON.stringify(obj)).subscribe(
+      (result: any) => {
+        console.log(result)
+        result.error ? this._services.exibirMsg(result.error) : null
+      }
+    )
+  }
+
+  gerarProtocoloDevolucao(item) {
+    const obj = {
+      acao:       'gerarProtocoloDevolucao',
+      id_comodato: item.id
+    }
+
+    this._services.gerarProtocoloDevolucao(JSON.stringify(obj)).subscribe(
+      (result: any) => console.log(result)
     )
   }
 
